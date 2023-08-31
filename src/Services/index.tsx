@@ -1,7 +1,5 @@
-// const API = process.env.NEXT_PUBLIC_API_URL;
-const API = 'https://web-production-deee.up.railway.app';
-// const VERSION = process.env.NEXT_PUBLIC_API_VERSION;
-const VERSION = 'v1';
+const API = import.meta.env.VITE_API_URL;
+const VERSION = import.meta.env.VITE_API_VERSION;
 
 const endPoints = {
   //NOTE - Controlar porque no me fije bien como esta armada la base de datos

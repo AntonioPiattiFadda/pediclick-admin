@@ -30,6 +30,11 @@ $soft-bg: #384256;
     @content;
   }
 }
+@media screen and (min-width: 475px) {
+  .dataTable {
+    width: calc(100% - 80px);
+  }
+}
 @media screen and (max-width: 475px) {
   .menuContainer {
     position: fixed;

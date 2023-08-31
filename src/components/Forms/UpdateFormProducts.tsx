@@ -11,10 +11,8 @@ import { updateProduct } from '../../Services/products.service';
 import { validateForm } from '../../Validator/ValidateForm';
 import endPoints from '../../Services';
 import axios from 'axios';
-// import { BsImage } from 'react-icons/bs';
-// process.env.NEXT_PUBLIC_CLOUDINARY_URL ||
-const CLOUDINARY_URL: string =
-  'https://api.cloudinary.com/v1_1/dm8b2resp/image/upload';
+
+const CLOUDINARY_URL: string = import.meta.env.VITE_CLOUDINARY_URL;
 
 const style = {
   width: 250,

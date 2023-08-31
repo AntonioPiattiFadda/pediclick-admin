@@ -10,13 +10,10 @@ import { TextField, InputAdornment, Input } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import { addProduct } from '../../Services/products.service';
 import axios from 'axios';
-// import { BsImage } from 'react-icons/bs';
 import './addProductForm.css';
 import { validateForm } from '../../Validator/ValidateForm';
 
-// process.env.NEXT_PUBLIC_CLOUDINARY_URL ||
-const CLOUDINARY_URL: string =
-  'https://api.cloudinary.com/v1_1/dm8b2resp/image/upload';
+const CLOUDINARY_URL: string = import.meta.env.VITE_CLOUDINARY_URL;
 
 async function uploadImage(file: File) {
   if (file) {

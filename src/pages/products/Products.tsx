@@ -1,7 +1,6 @@
 import './Products.scss';
 import DataTable from '../../components/dataTable/DataTable';
 import { GridColDef } from '@mui/x-data-grid';
-
 import { useState, useEffect } from 'react';
 import { getProducts } from '../../Services/products.service';
 import AddProductForm from '../../components/Forms/addProductForm';

@@ -10,21 +10,26 @@ import { useMediaQuery, useTheme } from '@mui/material';
 export function GridSkeleton() {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
-  const isMediumScreen = useMediaQuery(theme.breakpoints.down('md'));
+  const isMediumScreen = useMediaQuery('(max-width: 475px)');
   const isLargeScreen = useMediaQuery(theme.breakpoints.down('lg'));
-  const isExtraLargeScreen = useMediaQuery(theme.breakpoints.down('xl'));
 
-  return (
-    <Box
-      marginTop={'18px'}
-      sx={{
-        width: isLargeScreen ? (isSmallScreen ? 300 : 600) : 975,
+  const styles = isMediumScreen
+    ? {
+        width: 'calc(100% - 80px)',
         '& .MuiSkeleton-root': {
           lineHeight: '5rem',
           marginTop: '-25px',
         },
-      }}
-    >
+      }
+    : {
+        width: '100%',
+        '& .MuiSkeleton-root': {
+          lineHeight: '5rem',
+          marginTop: '-25px',
+        },
+      };
+  return (
+    <Box marginTop={'18px'} sx={styles}>
       <Skeleton />
       <Skeleton animation="wave" />
       <Skeleton animation={false} />
