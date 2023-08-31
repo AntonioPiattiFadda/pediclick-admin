@@ -1,0 +1,77 @@
+$sm: 480px;
+$md: 768px;
+$lg: 1024px;
+$xl: 1200px;
+$xxl: 1400px;
+$soft-bg: #384256;
+
+@mixin sm {
+  @media screen and (max-width: ($sm)) {
+    @content;
+  }
+}
+@mixin md {
+  @media screen and (max-width: ($md)) {
+    @content;
+  }
+}
+@mixin lg {
+  @media screen and (max-width: ($lg)) {
+    @content;
+  }
+}
+@mixin xl {
+  @media screen and (max-width: ($xl)) {
+    @content;
+  }
+}
+@mixin xxl {
+  @media screen and (max-width: ($xxl)) {
+    @content;
+  }
+}
+@media screen and (max-width: 475px) {
+  .menuContainer {
+    position: fixed;
+    bottom: 2rem;
+    background-color: $soft-bg;
+    height: 60px;
+    width: 90%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding: 1.3rem 2rem;
+    border-radius: 1.25rem;
+    transition: 0.4s;
+    z-index: 1000;
+  }
+  .menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 60px;
+    transform: translateY(-35%);
+    .item {
+      display: flex;
+      flex-direction: row;
+      gap: 22px;
+      margin: 0;
+    }
+  }
+}
+@media screen and (max-width: 392px) {
+  // .box {
+  //   width: 90vw;
+  // }
+  .options {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 400px) {
+  .menu {
+    .item {
+      gap: 17px;
+    }
+  }
+}

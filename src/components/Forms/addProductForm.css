@@ -1,0 +1,19 @@
+.imageFormLabel {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: solid 1px lightgrey;
+  border-radius: 5px;
+  padding: 15px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  width: 218px;
+  cursor: pointer;
+}
+.imageFormLabel:hover {
+  border: 1px solid grey;
+}
+.selectedImage {
+  color: green;
+}
