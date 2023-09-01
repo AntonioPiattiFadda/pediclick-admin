@@ -35,9 +35,7 @@ const addProduct = async (body: AddProduct) => {
 
 export const notifyAddedProduct = (success: boolean) => {
   const resolveAfter3Sec = new Promise((resolve) => setTimeout(resolve, 1500));
-  const rejectAfter3Sec = new Promise((resolve, reject) =>
-    setTimeout(reject, 1500)
-  );
+  const rejectAfter3Sec = new Promise((reject) => setTimeout(reject, 1500));
   if (success) {
     toast.promise(resolveAfter3Sec, {
       pending: 'Agregando producto',
@@ -65,9 +63,7 @@ const deleteProduct = async (id: number) => {
 
 export const notifyDeletedProduct = (success: boolean) => {
   const resolveAfter3Sec = new Promise((resolve) => setTimeout(resolve, 1500));
-  const rejectAfter3Sec = new Promise((resolve, reject) =>
-    setTimeout(reject, 1500)
-  );
+  const rejectAfter3Sec = new Promise((reject) => setTimeout(reject, 1500));
   if (success) {
     toast.promise(resolveAfter3Sec, {
       pending: 'Eliminando producto',
@@ -110,9 +106,7 @@ const updateProduct = async (id: number, body: UpdateProduct) => {
 
 export const notifyUpdatedProduct = (success: boolean) => {
   const resolveAfter3Sec = new Promise((resolve) => setTimeout(resolve, 1500));
-  const rejectAfter3Sec = new Promise((resolve, reject) =>
-    setTimeout(reject, 1500)
-  );
+  const rejectAfter3Sec = new Promise((reject) => setTimeout(reject, 1500));
   if (success) {
     toast.promise(resolveAfter3Sec, {
       pending: 'Actualizando producto',

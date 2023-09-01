@@ -72,19 +72,21 @@ export default function UpdatePriceAndStockForm({
 
   useEffect(() => {
     if (updatePriceAndStockModal.id === 0) return;
-    const fetchData = axios
-      .get(endPoints.products.getProduct(updatePriceAndStockModal.id))
-      .then((res) => {
-        const newProduct = {
-          name: res.data.name,
-          price: res.data.price,
-          stock: '1',
-        };
-        if (res.data.blocked) {
-          newProduct.stock = '2';
-        }
-        setProduct(newProduct);
-      });
+    const fetchData = axios.get(
+      endPoints.products.getProduct(updatePriceAndStockModal.id)
+    );
+
+    fetchData.then((res) => {
+      const newProduct = {
+        name: res.data.name,
+        price: res.data.price,
+        stock: '1',
+      };
+      if (res.data.blocked) {
+        newProduct.stock = '2';
+      }
+      setProduct(newProduct);
+    });
   }, [updatePriceAndStockModal]);
 
   const handleClose = () => {
@@ -106,21 +108,14 @@ export default function UpdatePriceAndStockForm({
     const validation = validateFormPriceAndStock(newProduct);
 
     if (validation.error) {
-      const transformedObject = validation.errors.reduce(
-        (obj: any, item: any) => {
-          // Extraer las claves y valores de cada objeto en el array
-          const [key, value] = Object.entries(item)[0];
-
-          // Agregar las propiedades al objeto resultante
-          obj[key] = value;
-
-          // Agregar las propiedades de mensaje al objeto resultante
-          obj[`${key}Message`] = item[`${key}Message`];
-
-          return obj;
-        },
-        {}
-      );
+      const transformedObject = validation.errors
+        ? validation.errors.reduce((obj: any, item: any) => {
+            const [key, value] = Object.entries(item)[0];
+            obj[key] = value;
+            obj[`${key}Message`] = item[`${key}Message`];
+            return obj;
+          }, {})
+        : {};
       setFormError(transformedObject);
       setLoading(false);
     }

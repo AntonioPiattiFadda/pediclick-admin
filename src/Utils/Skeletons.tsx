@@ -5,13 +5,10 @@ import Skeleton from '@mui/material/Skeleton';
 import CircularProgress from '@mui/material/CircularProgress';
 import Backdrop from '@mui/material/Backdrop';
 import Button from '@mui/material/Button';
-import { useMediaQuery, useTheme } from '@mui/material';
+import { useMediaQuery } from '@mui/material';
 
 export function GridSkeleton() {
-  const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
   const isMediumScreen = useMediaQuery('(max-width: 475px)');
-  const isLargeScreen = useMediaQuery(theme.breakpoints.down('lg'));
 
   const styles = isMediumScreen
     ? {

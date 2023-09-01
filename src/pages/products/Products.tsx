@@ -3,7 +3,7 @@ import DataTable from '../../components/dataTable/DataTable';
 import { GridColDef } from '@mui/x-data-grid';
 import { useState, useEffect } from 'react';
 import { getProducts } from '../../Services/products.service';
-import AddProductForm from '../../components/Forms/addProductForm';
+import { AddProductForm } from '../../components/Forms/addProductForm';
 
 const columns: GridColDef[] = [
   { field: 'id', headerName: 'ID', width: 90 },

@@ -56,7 +56,7 @@ const categories = [
   },
 ];
 
-export default function AddProductForm() {
+export function AddProductForm() {
   const [open, setOpen] = useState(false);
   const [serverError, setServerError] = useState({
     active: false,
@@ -111,15 +111,14 @@ export default function AddProductForm() {
       };
       const validation = validateForm(newProduct);
       if (validation.error) {
-        const transformedObject = validation.errors.reduce(
-          (obj: any, item: any) => {
-            const [key, value] = Object.entries(item)[0];
-            obj[key] = value;
-            obj[`${key}Message`] = item[`${key}Message`];
-            return obj;
-          },
-          {}
-        );
+        const transformedObject = validation.errors
+          ? validation.errors.reduce((obj: any, item: any) => {
+              const [key, value] = Object.entries(item)[0];
+              obj[key] = value;
+              obj[`${key}Message`] = item[`${key}Message`];
+              return obj;
+            }, {})
+          : {};
         setLoading(false);
         setFormError(transformedObject);
       }

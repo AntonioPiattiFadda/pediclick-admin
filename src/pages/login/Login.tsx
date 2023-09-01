@@ -14,7 +14,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import { useAuth } from '../../Hooks/useAuth';
+import { useAuth } from '../../Hooks/useAuth.jsx';
 import { CircularIndeterminate } from '../../Utils/Skeletons';
 
 function Copyright(props: any) {
@@ -60,6 +60,7 @@ export default function SignIn() {
       .catch((error: any) => {
         setSignInError(true);
         setLoading(false);
+        console.error(error);
       });
     //  router.push('/dashboard');
   };

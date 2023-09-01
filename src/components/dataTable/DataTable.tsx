@@ -9,7 +9,6 @@ import {
   GridCloseIcon,
   GridColDef,
   GridDeleteIcon,
-  GridSkeletonCell,
 } from '@mui/x-data-grid';
 import { IconButton } from '@mui/material';
 import UpdatePriceAndStockForm from '../Forms/UpdatePriceAndStock';
@@ -160,33 +159,29 @@ const DataTable = (props: Props) => {
       ),
     },
   ];
-  const [loading, setLoading] = useState(true);
   const [updateModal, setUpdateModal] = useState({ active: false, id: 0 });
   const [updatePriceAndStockModal, setUpdatePriceAndStockModal] = useState({
     active: false,
     id: 0,
   });
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
-  // const isMediumScreen = useMediaQuery(theme.breakpoints.down('md'));
-  // const isLargeScreen = useMediaQuery(theme.breakpoints.down('lg'));
-  // const isExtraLargeScreen = useMediaQuery(theme.breakpoints.down('xl'));
+  // const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const columnVisibilityModelMobile = isSmallScreen
-    ? {
-        name: true,
-        image: true,
-        description: false,
-        category: false,
-        eliminate: false,
-      }
-    : {
-        name: true,
-        image: true,
-        description: true,
-        category: true,
-        eliminate: true,
-      };
+  // const columnVisibilityModelMobile = isSmallScreen
+  //   ? {
+  //       name: true,
+  //       image: true,
+  //       description: false,
+  //       category: false,
+  //       eliminate: false,
+  //     }
+  //   : {
+  //       name: true,
+  //       image: true,
+  //       description: true,
+  //       category: true,
+  //       eliminate: true,
+  //     };
 
   const handleDeleteProduct = (id: number) => {
     try {
@@ -201,7 +196,8 @@ const DataTable = (props: Props) => {
       id: id,
     });
   };
-  if (props.rows[0].image === 'ejemplo') {
+
+  if (props.rows[0] && props.rows[0].image === 'ejemplo') {
     return <GridSkeleton />;
   }
 

@@ -93,15 +93,15 @@ export default function UpdateFormProducts({
     if (updateModal.id === 0) return;
     setLoading(false);
     setSelectedImage(false);
-    const fetchData = axios
-      .get(endPoints.products.getProduct(updateModal.id))
-      .then((res) => {
-        const productToUpdate = {
-          ...res.data,
-          categoryId: res.data.categoryId.toString(),
-        };
-        setProduct(productToUpdate);
-      });
+    const fetchData = axios.get(endPoints.products.getProduct(updateModal.id));
+
+    fetchData.then((res) => {
+      const productToUpdate = {
+        ...res.data,
+        categoryId: res.data.categoryId.toString(),
+      };
+      setProduct(productToUpdate);
+    });
   }, [updateModal]);
   const handleChangeImage = () => {
     setSelectedImage(true);
@@ -121,21 +121,14 @@ export default function UpdateFormProducts({
         };
         const validation = validateForm(newProduct);
         if (validation.error) {
-          const transformedObject = validation.errors.reduce(
-            (obj: any, item: any) => {
-              // Extraer las claves y valores de cada objeto en el array
-              const [key, value] = Object.entries(item)[0];
-
-              // Agregar las propiedades al objeto resultante
-              obj[key] = value;
-
-              // Agregar las propiedades de mensaje al objeto resultante
-              obj[`${key}Message`] = item[`${key}Message`];
-
-              return obj;
-            },
-            {}
-          );
+          const transformedObject = validation.errors
+            ? validation.errors.reduce((obj: any, item: any) => {
+                const [key, value] = Object.entries(item)[0];
+                obj[key] = value;
+                obj[`${key}Message`] = item[`${key}Message`];
+                return obj;
+              }, {})
+            : {};
           setLoading(false);
           setFormError(transformedObject);
         }
@@ -164,21 +157,14 @@ export default function UpdateFormProducts({
       };
       const validation = validateForm(newProduct);
       if (validation.error) {
-        const transformedObject = validation.errors.reduce(
-          (obj: any, item: any) => {
-            // Extraer las claves y valores de cada objeto en el array
-            const [key, value] = Object.entries(item)[0];
-
-            // Agregar las propiedades al objeto resultante
-            obj[key] = value;
-
-            // Agregar las propiedades de mensaje al objeto resultante
-            obj[`${key}Message`] = item[`${key}Message`];
-
-            return obj;
-          },
-          {}
-        );
+        const transformedObject = validation.errors
+          ? validation.errors.reduce((obj: any, item: any) => {
+              const [key, value] = Object.entries(item)[0];
+              obj[key] = value;
+              obj[`${key}Message`] = item[`${key}Message`];
+              return obj;
+            }, {})
+          : {};
         setLoading(false);
         setFormError(transformedObject);
       }

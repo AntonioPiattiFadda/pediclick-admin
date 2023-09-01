@@ -3,7 +3,7 @@ import './navbar.scss';
 import { Avatar } from '@mui/material';
 
 const Navbar = () => {
-  const [adminData, setAdminData] = useState({
+  const [adminData] = useState({
     name: 'Antonio',
     lastName: 'Piatti',
     image:
