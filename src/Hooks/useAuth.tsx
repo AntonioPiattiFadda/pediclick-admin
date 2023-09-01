@@ -6,7 +6,7 @@ import endPoints from '../Services';
 export function useAuth() {
   const [user, setUser] = useState('');
 
-  const signIn = async (email, password) => {
+  const signIn = async (email: string, password: string) => {
     const options = {
       headers: {
         accept: '*/*',
@@ -28,7 +28,7 @@ export function useAuth() {
     }
   };
   const logOut = () => {
-    setUser(null);
+    setUser('');
     Cookies.remove('Token');
     delete axios.defaults.headers.Authorization;
     window.location.href = '/login';

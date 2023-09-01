@@ -1,6 +1,5 @@
 import './dataTable.scss';
 import { deleteProduct } from '../../Services/products.service';
-import { useTheme, useMediaQuery } from '@mui/material';
 import { useState } from 'react';
 import {
   DataGrid,
@@ -164,7 +163,6 @@ const DataTable = (props: Props) => {
     active: false,
     id: 0,
   });
-  const theme = useTheme();
   // const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   // const columnVisibilityModelMobile = isSmallScreen

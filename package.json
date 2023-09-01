@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "node src/main.tsx",
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
@@ -28,6 +29,7 @@
     "sass": "^1.63.6"
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.3",
     "@types/node": "^20.5.7",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
