@@ -1,5 +1,4 @@
 //STUB - No estoy usando nada de este archivo
-
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
