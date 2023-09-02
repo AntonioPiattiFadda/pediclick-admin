@@ -81,6 +81,14 @@ function App() {
       path: '/login',
       element: <Login />,
     },
+    {
+      path: '/settings',
+      element: <Settings />,
+    },
+    {
+      path: '/products/:id',
+      element: <Product />,
+    },
   ]);
 
   return <RouterProvider router={router} />;
