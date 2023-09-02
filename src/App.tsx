@@ -78,12 +78,12 @@ function App() {
       ],
     },
     {
-      path: '/login',
-      element: <Login />,
-    },
-    {
       path: '/settings',
       element: <Settings />,
+    },
+    {
+      path: '/login',
+      element: <Login />,
     },
     {
       path: '/products/:id',
