@@ -6,7 +6,10 @@ import endPoints from '../Services';
 export function useAuth() {
   const [user, setUser] = useState('');
 
-  const signIn = async (email: string, password: string) => {
+  const signIn = async (
+    email: FormDataEntryValue | null,
+    password: FormDataEntryValue | null
+  ) => {
     const options = {
       headers: {
         accept: '*/*',

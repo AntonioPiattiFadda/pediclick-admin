@@ -14,9 +14,19 @@ import UpdatePriceAndStockForm from '../Forms/UpdatePriceAndStock';
 import UpdateFormProducts from '../Forms/UpdateFormProducts';
 import { GridSkeleton } from '../../Utils/Skeletons';
 
+type Row = {
+  id: number;
+  name: string;
+  image: string;
+  description: string;
+  price: number;
+  category: number;
+  blocked: boolean;
+};
+
 type Props = {
   columns: GridColDef[];
-  rows: object[];
+  rows: Row[];
   slug: string;
 };
 
