@@ -5,8 +5,9 @@ import { menu } from '../../data';
 const Menu = () => {
   const location = useLocation();
   const isHome = location.pathname === '/';
+  const isLogin = location.pathname === '/login';
 
-  if (isHome) {
+  if (isHome || isLogin) {
     return;
   }
   return (

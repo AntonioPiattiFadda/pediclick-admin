@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './navbar.scss';
 import { Avatar } from '@mui/material';
+import { useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [adminData] = useState({
@@ -9,6 +10,14 @@ const Navbar = () => {
     image:
       'https://i.pinimg.com/550x/fb/df/1a/fbdf1a5addb8b1be64a7cc04c2be6c36.jpg',
   });
+
+  const location = useLocation();
+  // const isHome = location.pathname === '/';
+  const isLogin = location.pathname === '/login';
+
+  if (isLogin) {
+    return;
+  }
 
   return (
     <div className="navbar">
